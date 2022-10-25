@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap')
+
+$FontSize: Max(Min(3vw, 3vh))
+$Margin: Max(Min(1vw, 1vh))
+
+@mixin flexCenter()
+  display: flex
+  align-items: center
+  justify-content: center
+
+:root
+  touch-action: pan-x pan-y
+  height: 100%
+  
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+  font-family: 'Lato', sans-serif
+
+html
+  font-size: 16px
+  color: white
+  
+body
+  width: 100vw
+  height: 100vh
+  background-color: black
+  overflow: hidden
+  @include flexCenter
+  
+#drum-machine
+  height: 100vh
+  width: 100vw
+  background: rgb(0,0,20)
+  background: linear-gradient(180deg, rgba(0,0,20,1) 0%, rgba(40,40,60,1) 0%, rgba(20,20,20,1) 100%)
+  padding: .5rem
+  @include flexCenter
+  flex-direction: row
+  
+
+.drum-pad
+  font-size: $FontSize
+  border-radius: 1px
+  background: radial-gradient(circle at center, #ffffff35 5%, transparent, #00000025 100%)
+  filter: contrast(90%) brightness(90%) hue-rotate(0deg) 
+  cursor: pointer
+  
+  p
+    font-weight: bold
+    margin: $Margin
+    text-shadow: 0 0 15px black
+    
+#Heater-1, #Heater-2, #Heater-3
+  border: 1px solid #e52862
+  background-color: #e52862
+  transition: .25s
+
+#Melody-1, #Melody-2
+  border: 1px solid #1067ff
+  background-color: #1067ff
+  transition: .25s
+  
+#Chord-1, #Chord-2
+  border: 1px solid #a21ba4
+  background-color: #a21ba4
+  transition: .25s
+
+#Beat-1, #Beat-2
+  border: 1px solid #e29f1b
+  background-color: #e29f1b
+  transition: .25s
+  
+#Beat-3, #Beat-4
+  border: 1px solid #bbbb00
+  background-color: #bbbb00
+  transition: .25s
+  
+#Sample-1, #Sample-2, #Sample-3, #Sample-4
+  border: 1px solid #39af15
+  background-color: #39af15
+  transition: .25s
+  
+#container
+  width: 25%
+  min-width: 150px
+  max-width: 250px
+  display: flex
+  align-items: center
+  flex-direction: column
+  justify-content: space-between
+  height: fit-content
+  border: 1px solid grey
+  padding: 1rem
+  margin: 1rem
+  > *
+    margin: .5rem
+  
+#display 
+  height: 1.4rem
+  width: 80%
+  text-align: center
+  border: 1px solid grey
+  
+#volume
+  @include flexCenter
+  flex-direction: column
+  width: 80%
+  
+#range
+  width: 100%
+  cursor: pointer
+
+#size-keys 
+  display: flex
+  flex-direction: row
+  align-items: space-around
+  width: 100%
+  
+#sizes, #keys
+  @include flexCenter
+  width: 50%
+
+
+#size-select, #bank-select
+  cursor: pointer
+  height: 1.5rem
+  background-color: transparent
+  color: white
+  font-size: 1rem
+  option
+    background-color: rgb(20,20,20)
+
+#bank
+  width: 100%
+  @include flexCenter
+    
+#bank-select
+  width: 160%
+
+  
+label    
+  width: 50%
+  @include flexCenter
+  flex-direction: column
+  
+  
+label input
+  display: none
+
+label span
+  height: 1.5rem
+  width: 1.5rem
+  border: 1px solid grey
+  display: inline-block
+  background-color: transparent
+  cursor: pointer
+
+[type=checkbox]:checked + span:before
+  content: 'x'
+  @include flexCenter
+  color: white
+  
+.popup
+  position: fixed
+  width: 100vw
+  height: 100vh
+  background-color: rgba(0,0,0, 0.5)
+
+.popup_inner 
+  background: darkred
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-direction: row
+  text-align: center
+  font-size: 8px
+  padding: 10px
+  div
+    font-size: 22px
+    border: 1px solid white
+    width: 2rem
+    padding: .25rem
+    text-align: center
+
+@media (max-width: '1100px') and (orientation: 'portrait')
+  #container
+    display: none

@@ -223,14 +223,14 @@ const Drumpad = (props) => {
   }
   
  let display = "block";
- const url = "https://raff1010x.github.io/"
+ const url = "./"
 
  const pad = sampleDef.map((el, i, arr) => {
  if (props.size > 0) display = (i < props.size) ? "block" : "none";
  if (props.size == 0 && i > 8) return "";
    return (
      <Button
-       url= {"https://raff1010x.github.io/" + props.bank + (i + 1) + ".webm"}
+       url= {"./" + props.bank + (i + 1) + ".webm"}
        id={arr[i][1]}
        keyValue={arr[i][0]}
        i={i}

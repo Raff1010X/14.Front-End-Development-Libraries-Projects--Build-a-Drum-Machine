@@ -230,7 +230,7 @@ const Drumpad = (props) => {
  if (props.size == 0 && i > 8) return "";
    return (
      <Button
-       url= {"./" + props.bank + (i + 1) + ".webm"}
+       url= {"./samples/" + props.bank + (i + 1) + ".webm"}
        id={arr[i][1]}
        keyValue={arr[i][0]}
        i={i}
